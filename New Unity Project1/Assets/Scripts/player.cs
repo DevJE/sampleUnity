@@ -9,18 +9,18 @@ public class player : MonoBehaviour
     public Sprite[] idleSprites;
     public Sprite[] moveSprites;
 
-    private SpriteRenderer playerimg;
+    public SpriteRenderer playerImage;
 
     public int index1 = 0;
     public int index2 = 0;
     public int count = 0;
     public int frame = 0;
-
+    
     // public float jjump;
     public bool isGroundFloor;
     void Start()
     {
-        playerimg = GetComponent<SpriteRenderer>();
+        playerImage = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -58,8 +58,8 @@ public class player : MonoBehaviour
                     index2 = 0;
                 }
 
-                playerimg.sprite = moveSprites[index2];
-                playerimg.flipX = Input.GetKey(KeyCode.D);
+                playerImage.sprite = moveSprites[index2];
+                playerImage.flipX = Input.GetKey(KeyCode.D);
             }
             else
             {
@@ -69,7 +69,7 @@ public class player : MonoBehaviour
                     index1 = 0;
                 }
 
-                playerimg.sprite = idleSprites[index1];
+                playerImage.sprite = idleSprites[index1];
             }
 
             
@@ -91,4 +91,5 @@ public class player : MonoBehaviour
             this.isGroundFloor = false;
         }
     }
+
 }
