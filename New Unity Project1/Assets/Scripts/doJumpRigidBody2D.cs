@@ -12,10 +12,20 @@ public class doJumpRigidBody2D : MonoBehaviour
 
     private int index1 = 0;
     private int index2 = 0;
-   
+
+    private int moveCount = 0;
+    private int idleCount = 0;
+
+    private int moveSpeed = 10;
+    private int idleSpeed = 10;
+
     private Sprite[] idleSprites;
     private Sprite[] moveSprites;
     private SpriteRenderer playerImage;
+
+    public Vector2 firstPosition = new Vector2();
+
+    private bool jumpFlag;
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,7 +40,9 @@ public class doJumpRigidBody2D : MonoBehaviour
         idleSprites = player.idleSprites;
         moveSprites = player.moveSprites;
         playerImage = player.playerImage;
-        
+
+        firstPosition.x = this.transform.position.x;
+        firstPosition.y = this.transform.position.y;
     }
 
     // Update is called once per frame
@@ -44,10 +56,19 @@ public class doJumpRigidBody2D : MonoBehaviour
         else if (Input.GetKey(KeyCode.DownArrow)) downKeycode(foxMove);
         else
         {
-            ++index1;
-            if (idleSprites.Length <= index1)
+            if(idleSpeed == 10)
             {
-                index1 = 0;
+                ++index1;
+                if (idleSprites.Length <= index1)
+                {
+                    index1 = 0;
+                }
+
+                idleSpeed = 0;
+            }
+            else
+            {
+                idleSpeed += 1;
             }
 
             playerImage.sprite = idleSprites[index1];
@@ -66,7 +87,7 @@ public class doJumpRigidBody2D : MonoBehaviour
         //  transform.position += Vector3.right * move;
         
         ++ index2;
-        Debug.Log("index2 => " + index2);
+      //  Debug.Log("index2 => " + index2);
         if (moveSprites.Length <= index2)
         {
             index2 = 0;
@@ -92,8 +113,14 @@ public class doJumpRigidBody2D : MonoBehaviour
 
     private void upKeycode(float move)
     {
-        Rigidbody2D rigidbody2D = this.gameObject.GetComponent<Rigidbody2D>();
-        rigidbody2D.AddForce(Vector3.up * objectJump);
+        if(jumpFlag == false)
+        {
+            Rigidbody2D rigidbody2D = this.gameObject.GetComponent<Rigidbody2D>();
+            rigidbody2D.AddForce(Vector3.up * objectJump);
+
+            jumpFlag = true;
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -102,10 +129,22 @@ public class doJumpRigidBody2D : MonoBehaviour
         {
             GetComponent<PolygonCollider2D>().isTrigger = true;
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         GetComponent<PolygonCollider2D>().isTrigger = false;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        jumpFlag = false;
+    }
+
+    public void SetInitPosition()
+    {
+        this.transform.position = firstPosition;
+    }
+
 }

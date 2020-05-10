@@ -15,12 +15,16 @@ public class player : MonoBehaviour
     public int index2 = 0;
     public int count = 0;
     public int frame = 0;
+
+    public Vector2 firstPosition = new Vector2();
     
     // public float jjump;
     public bool isGroundFloor;
     void Start()
     {
         playerImage = GetComponent<SpriteRenderer>();
+        firstPosition.x = this.transform.position.x;
+        firstPosition.y = this.transform.position.y;
     }
 
     // Update is called once per frame
@@ -91,5 +95,7 @@ public class player : MonoBehaviour
             this.isGroundFloor = false;
         }
     }
+
+    
 
 }

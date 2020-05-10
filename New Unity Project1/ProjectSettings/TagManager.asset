@@ -8,6 +8,8 @@ TagManager:
   - groundFloor
   - crank
   - floatTiles1
+  - falling
+  - mainDoor
   layers:
   - Default
   - TransparentFX
