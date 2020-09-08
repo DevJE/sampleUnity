@@ -7271,6 +7271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2075537793}
   - component: {fileID: 2075537795}
+  - component: {fileID: 2075537796}
   - component: {fileID: 2075537794}
   m_Layer: 0
   m_Name: door
@@ -7369,6 +7370,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2075537796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075537792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06029971e03a846849a05b4272273bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 0, y: 0}
+  door: {fileID: 2075537792}
 --- !u!1 &2090616949
 GameObject:
   m_ObjectHideFlags: 0
