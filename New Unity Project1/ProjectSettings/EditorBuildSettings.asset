@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/enterHome.unity
+    guid: fc6b18943cc8e4258ae180abb3f5fc9d
   m_configObjects: {}

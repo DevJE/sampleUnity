@@ -7382,8 +7382,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06029971e03a846849a05b4272273bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 0
   position: {x: 0, y: 0}
   door: {fileID: 2075537792}
+  player: {fileID: 0}
 --- !u!1 &2090616949
 GameObject:
   m_ObjectHideFlags: 0

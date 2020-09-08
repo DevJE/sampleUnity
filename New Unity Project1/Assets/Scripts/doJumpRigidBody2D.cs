@@ -13,10 +13,7 @@ public class doJumpRigidBody2D : MonoBehaviour
     private int index1 = 0;
     private int index2 = 0;
 
-    private int moveCount = 0;
-    private int idleCount = 0;
-
-    private int moveSpeed = 10;
+    
     private int idleSpeed = 10;
 
     private Sprite[] idleSprites;
@@ -119,6 +116,13 @@ public class doJumpRigidBody2D : MonoBehaviour
             rigidbody2D.AddForce(Vector3.up * objectJump);
 
             jumpFlag = true;
+        } else
+        {
+            if (GameObject.FindGameObjectWithTag("crank"))
+            {
+                gameObject.AddComponent<Portal>().OnLoad();
+                
+            }
         }
         
     }
@@ -129,12 +133,13 @@ public class doJumpRigidBody2D : MonoBehaviour
         {
             GetComponent<PolygonCollider2D>().isTrigger = true;
         }
-
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         GetComponent<PolygonCollider2D>().isTrigger = false;
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
