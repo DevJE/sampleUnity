@@ -7,5 +7,6 @@
  Teleport forward.
  
  Attack enemies.
+ Cure.
     
 
