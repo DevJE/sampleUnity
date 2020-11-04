@@ -6,5 +6,5 @@
  Set some objects on another map when a player teleporting.
  Teleport forward.
  
- Cure.
+ Map.
  Eagle
